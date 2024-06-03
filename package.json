@@ -1,0 +1,70 @@
+{
+  "name": "payrex-js",
+  "version": "0.1.1",
+  "description": "CommonJS or ES module for PayRex JS",
+  "keywords": [
+    "payrex",
+    "payment processing",
+    "credit cards",
+    "api"
+  ],
+  "homepage": "https://github.com/payrexhq/payrex-js",
+  "author": "PayRex Engineering <developers@payrexhq.com>",
+  "module": "dist/index.js",
+  "common": "dist/index.cjs",
+  "types": "dist/index.d.ts",
+  "source": "src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/payrexhq/payrex-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/payrexhq/payrex-js/issues"
+  },
+  "targets": {
+    "common": {
+      "sourceMap": false,
+      "isLibrary": true,
+      "optimize": true,
+      "scopeHoist": true,
+      "outputFormat": "commonjs"
+    },
+    "module": {
+      "sourceMap": false,
+      "isLibrary": true,
+      "optimize": true,
+      "scopeHoist": true,
+      "outputFormat": "esmodule"
+    }
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "experimentalDecorators": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build",
+    "slint": "standard",
+    "prepublishOnly": "npm run build",
+    "slint-fix": "standard --fix",
+    "ci": "npm run slint && npm run ts",
+    "ts": "tsc -p tsconfig.json",
+    "ci-fix": "npm run slint-fix && npm run ts",
+    "build:watch": "nodemon --legacy-watch --watch src -e js,ts,tsx --exec 'parcel build'",
+    "dev": "concurrently \"npm:build:watch\" \"npm:serve\""
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/transformer-inline-string": "^2.12.0",
+    "@types/node": "^20.12.13",
+    "autoprefixer": "^10.4.15",
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1",
+    "standard": "^17.1.0",
+    "ts-standard": "^12.0.2"
+  },
+  "dependencies": {
+    "@parcel/packager-ts": "^2.12.0",
+    "@parcel/transformer-typescript-types": "^2.12.0",
+    "parcel": "^2.12.0",
+    "typescript": "^5.4.5"
+  }
+}
