@@ -1,6 +1,6 @@
 {
   "name": "payrex-js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "CommonJS or ES module for PayRex JS",
   "keywords": [
     "payrex",
